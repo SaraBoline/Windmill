@@ -1,20 +1,20 @@
 from machine import ADC, Pin
 import time
 
-# --- USER INPUT ---
+# definere kondensator
 kondensator = "K1000"  # Change this to match the capacitor's value or label
 
-# --- INIT ---
+#definere pin og filnavne 
 adc = ADC(Pin(28))
 filename = "adc_measurements.csv"
 time_column = f"{kondensator}_time"
 adc_column = f"{kondensator}_value"
 
-# Write header to CSV file
+# header CSV
 with open(filename, "a") as file:
     file.write(f"{time_column},{adc_column}\n")
 
-# --- DATA COLLECTION ---
+#Indsamle data 
 start_time = None
 timing = False
 
